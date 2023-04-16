@@ -83,7 +83,7 @@ keys = [
     # PcmanFM
     Key([mod], "e", lazy.spawn("pcmanfm")),
     # Firefox
-    Key([mod], "b", lazy.spawn("firefox")),
+    Key([mod], "b", lazy.spawn("brave")),
     # Notion
     Key([mod], "n", lazy.spawn("notion-app")),
     # VSCode
@@ -124,7 +124,7 @@ keys = [
     Key([mod], "z", lazy.window.toggle_fullscreen()),
 ]
 
-groups = [Group(i) for i in "嗢"]
+groups = [Group(i) for i in "嗢"]
 
 for i, group in enumerate(groups):
     actual_key = str(i+1)
@@ -135,7 +135,7 @@ for i, group in enumerate(groups):
         Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
     ])
 layouts = [
-    layout.Max(),
+    
     # layout.Columns(border_focus="#9c4dcc", border_normal="#000"), 
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -143,6 +143,7 @@ layouts = [
     layout.MonadTall(border_focus="#9c4dcc", border_width=2),
     layout.MonadWide(border_focus="#9c4dcc", border_width=2),
     layout.Matrix(border_focus="#9c4dcc", border_width=2),
+    layout.Max(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
