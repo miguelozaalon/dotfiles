@@ -78,39 +78,28 @@ keys = [
     # Kitty
     Key([mod], "Return", lazy.spawn("kitty"), desc="Launch terminal"),
     # Rofi
-    Key(["mod1"], "Return", lazy.spawn("rofi -show run")),
-    Key(["mod1", "shift"], "Return", lazy.spawn("rofi -show")),
+    Key(["mod1"], "Space", lazy.spawn("rofi -show run")),
+    # Key(["control"], "Space", lazy.spawn("rofi -show")),
     # PcmanFM
     Key([mod], "e", lazy.spawn("pcmanfm")),
     # Firefox
     Key([mod], "b", lazy.spawn("brave")),
     # Notion
-    Key([mod], "n", lazy.spawn("notion-app")),
+    Key([mod], "n", lazy.spawn("obsidian")),
     # VSCode
     Key([mod], "c", lazy.spawn("code")),
     # Redshift
-    Key([mod], "r", lazy.spawn("redshift-gtk -O 5000")),
-    Key([mod, "shift"], "r", lazy.spawn("redshift-gtk -x")),
+    Key([mod], "r", lazy.spawn("redshift -O 5000")),
+    Key([mod, "shift"], "r", lazy.spawn("redshift -x")),
     # Spotify
     Key([mod], "s", lazy.spawn("spotify-launcher")),
     # Bitwarden
     Key([mod], "p", lazy.spawn("bitwarden-desktop")),
 
-
-
-
-
-
-    # Volumen
-    Key([], "XF86AudioLowerVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-    )),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-    )),
-    Key([], "XF86AudioMute", lazy.spawn(
-        "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    )),
+    #Volumen
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
 
     # Brillo
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
@@ -124,7 +113,7 @@ keys = [
     Key([mod], "z", lazy.window.toggle_fullscreen()),
 ]
 
-groups = [Group(i) for i in "嗢"]
+groups = [Group(i) for i in "󱞁"]
 
 for i, group in enumerate(groups):
     actual_key = str(i+1)
@@ -138,15 +127,15 @@ layouts = [
     
     # layout.Columns(border_focus="#9c4dcc", border_normal="#000"), 
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     layout.MonadTall(border_focus="#9c4dcc", border_width=2),
     layout.MonadWide(border_focus="#9c4dcc", border_width=2),
-    layout.Matrix(border_focus="#9c4dcc", border_width=2),
+    #layout.Stack(num_stacks=2),
+    #layout.Matrix(border_focus="#9c4dcc", border_width=2),
+    layout.TreeTab(),
     layout.Max(),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -179,7 +168,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.CheckUpdates(
                     no_update_string="  0",
-                    update_interval=120,
+                    update_interval=2700,
                     font="Hack Nerd Font", fontsize=14,
                     colour_no_updates="#9c4dcc",
                     colour_have_updates="#9c4dcc",
@@ -220,12 +209,12 @@ screens = [
                 widget.TextBox(
                         text="",
                         background="#9c4dcc",
-                        foreground="#000000",
+                        foreground="#A27EFE",
                         padding=-5,
                         fontsize=40,
                 ),
 
-                widget.Systray(background="#06000f", padding=5),
+                widget.Systray(background="#A27EFE", padding=5),
 
             ],
             25,
